@@ -1,6 +1,6 @@
 # Book Recommender App Readme
 
-![Book Recommender Icon](icon.png)
+# 📚
 
 ## Overview
 
