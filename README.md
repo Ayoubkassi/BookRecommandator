@@ -4,6 +4,8 @@
 
 ## Overview
 
+![alt](./scr/scr1.png)
+
 Welcome to the Book Recommender App, a Java-based application that leverages the power of ontology with Jena API to provide personalized book recommendations. Whether you're an avid reader or someone looking to discover new literary gems, this app is designed to enhance your reading experience.
 
 ## Features
@@ -19,22 +21,25 @@ Welcome to the Book Recommender App, a Java-based application that leverages the
 ## How to Use
 
 1. **Clone the Repository:**
-    ```bash
-    git clone https://github.com/Ayoubkassi/BookRecommandator.git
-    ```
+
+   ```bash
+   git clone https://github.com/Ayoubkassi/BookRecommandator.git
+   ```
 
 2. **Build with Ant:**
-    ```bash
-    ant build
-    ```
+
+   ```bash
+   ant build
+   ```
 
 3. **Run the App:**
-    ```bash
-    java -jar book-recommender-app.jar
-    ```
+
+   ```bash
+   java -jar book-recommender-app.jar
+   ```
 
 4. **Explore and Enjoy:**
-    Open your web browser and navigate to `http://localhost:8080` to start exploring personalized book recommendations.
+   Open your web browser and navigate to `http://localhost:8080` to start exploring personalized book recommendations.
 
 ## Dependencies
 

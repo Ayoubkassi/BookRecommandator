@@ -1,0 +1,16 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#"
+    xmlns:j.0="http://example.org#">
+  <j.0:User rdf:about="http://example.org#Ayoubkassi"/>
+  <j.0:Book rdf:about="http://example.org#CleanCode">
+    <j.0:authoredBy>
+      <j.0:Author rdf:about="http://example.org#Author">
+        <vcard:FN>Robert Cecil Martin</vcard:FN>
+      </j.0:Author>
+    </j.0:authoredBy>
+    <j.0:hasGenre>
+      <j.0:Genre rdf:about="http://example.org#ComputerScience"/>
+    </j.0:hasGenre>
+  </j.0:Book>
+</rdf:RDF>
