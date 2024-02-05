@@ -32,10 +32,9 @@ import org.apache.jena.reasoner.rulesys.Rule;
  * @author kassi
  */
 public class JenaEngine {
-    
-    static public String RDF = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
 
-	
+	static public String RDF = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
+
 	static public Model readModel(String inputDataFile) {
 		// create an empty model
 		Model model = ModelFactory.createDefaultModel();
@@ -59,8 +58,6 @@ public class JenaEngine {
 		return model;
 	}
 
-
-	
 	static public Model readInferencedModelFromRuleFile(Model model,
 			String inputRuleFile) {
 		InputStream in = FileManager.get().open(inputRuleFile);
@@ -85,7 +82,6 @@ public class JenaEngine {
 		return inf;
 	}
 
-	
 	static public String executeQuery(Model model, String queryString) {
 		org.apache.jena.query.Query query = QueryFactory.create(queryString);
 		// No reasoning
@@ -130,7 +126,6 @@ public class JenaEngine {
 		return executeQuery(model, queryString);
 	}
 
-	
 	static public String executeQueryFileWithParameter(Model model,
 			String filepath, String parameter) {
 		File queryFile = new File(filepath);
@@ -152,7 +147,6 @@ public class JenaEngine {
 		return executeQuery(model, queryString);
 	}
 
-	
 	static public boolean createInstanceOfClass(Model model, String namespace,
 			String className, String instanceName) {
 		Resource rs = model.getResource(namespace + instanceName);
@@ -168,7 +162,6 @@ public class JenaEngine {
 		return false;
 	}
 
-	
 	static public boolean updateValueOfObjectProperty(Model model,
 			String namespace, String object1Name, String propertyName,
 			String object2Name) {
@@ -185,7 +178,6 @@ public class JenaEngine {
 		return false;
 	}
 
-	
 	static public boolean addValueOfObjectProperty(Model model,
 			String namespace, String instance1Name, String propertyName,
 			String instance2Name) {
@@ -200,7 +192,6 @@ public class JenaEngine {
 		return false;
 	}
 
-	
 	static public boolean updateValueOfDataTypeProperty(Model model,
 			String namespace, String instanceName, String propertyName,
 			Object value) {
@@ -216,7 +207,6 @@ public class JenaEngine {
 		return false;
 	}
 
-	
 	static public boolean addValueOfDataTypeProperty(Model model,
 			String namespace, String instanceName, String propertyName,
 			Object value) {
@@ -230,7 +220,6 @@ public class JenaEngine {
 		return false;
 	}
 
-	
 	static public boolean removeAllValuesOfProperty(Model model,
 			String namespace, String objectName, String propertyName) {
 		Resource rs = model.getResource(namespace + objectName);
@@ -243,9 +232,8 @@ public class JenaEngine {
 		}
 		return false;
 	}
-	
-	
-	//get OntModel
+
+	// get OntModel
 	static public OntModel readOntmodel(String inputfile) {
 		OntModel model = ModelFactory.createOntologyModel();
 
@@ -265,7 +253,7 @@ public class JenaEngine {
 		return model;
 	}
 
-	//read the value of property of type ObjectType
+	// read the value of property of type ObjectType
 	static public void readObjectType(Model model, String namespace,
 			String objectName, String propertyName) {
 
@@ -283,7 +271,7 @@ public class JenaEngine {
 					Statement s = it.next();
 					Resource re = s.getResource();
 					readRsDataType(model, namespace, re, "name");
-					readRsDataType(model,namespace,re,"genrename");
+					readRsDataType(model, namespace, re, "genrename");
 				}
 			}
 		}
@@ -316,5 +304,5 @@ public class JenaEngine {
 			}
 		}
 	}
-        
+
 }
