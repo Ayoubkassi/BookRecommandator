@@ -110,7 +110,7 @@ public class BookrecommanderApplication {
 
 		//initializeLoadFile();
 		// and after load the file
-		this.model = loadModelFromFile("TriplebookRecomander.rdf");
+		this.model = loadModelFromFile("finalOntology.rdf");
 	}
 
 	// Add this function to query the provided Model with the SPARQL query
@@ -146,10 +146,8 @@ public class BookrecommanderApplication {
 	@PostMapping("/query")
 	public ResponseEntity<List<Map<String, String>>> queryModelWithParameters(@RequestBody Map<String, String> requestBody) {
 		String title = requestBody.get("title");
-		String genre = requestBody.get("genre"); // Updated 'type' to 'genre'
-		String author = requestBody.get("author");
 
-		String queryString = buildQuery(title, genre, author); // Updated method parameters
+		String queryString = buildQuery(title);
 		System.out.println("Query string: " + queryString);
 
 		Query query = QueryFactory.create(queryString);
@@ -166,7 +164,7 @@ public class BookrecommanderApplication {
 				Map<String, String> resultMap = new HashMap<>();
 				soln.varNames().forEachRemaining(var -> {
 					RDFNode value = soln.get(var);
-					resultMap.put(var, value.toString());
+					resultMap.put(var, getLocalName(value.toString()));
 				});
 
 				queryResults.add(resultMap);
@@ -179,39 +177,33 @@ public class BookrecommanderApplication {
 		return ResponseEntity.ok(queryResults);
 	}
 
-	// Helper method to build the query based on parameters
-	// Helper method to build the query based on parameters
-	private String buildQuery(String title, String genre, String author) {
+	// Helper method to extract the local name from a URI
+	private String getLocalName(String uri) {
+		int index = Math.max(uri.lastIndexOf('#'), uri.lastIndexOf('/'));
+		return uri.substring(index + 1);
+	}
+
+
+	// Helper method to build the query based on the book title
+	private String buildQuery(String title) {
 		StringBuilder queryBuilder = new StringBuilder();
-		queryBuilder.append("PREFIX ex: <http://example.org#>\n")
-				.append("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n")
-				.append("PREFIX vcard: <http://www.w3.org/2001/vcard-rdf/3.0#>\n")
-				.append("SELECT ?book ?title ?genre ?author\n")
+		queryBuilder.append("PREFIX book: <http://www.semanticweb.org/ahmed/ontologies/2024/0/book#>\n")
+				.append("SELECT ?title ?hasGenre ?numberOfPages ?writtenBy\n")
 				.append("WHERE {\n")
-				.append("  ?book rdf:type ex:Book .\n")
-				.append("  ?book ex:hasGenre ?genre .\n")
-				.append("  ?book ex:authoredBy ?author .\n")
-				.append("  ?book ex:hasTitle ?title .\n");
-
-		// Filter based on provided parameters
-		if (title != null && !title.isEmpty()) {
-			queryBuilder.append("  FILTER (regex(?title, \"").append(title).append("\", \"i\"))\n");
-		}
-
-		if (genre != null && !genre.isEmpty()) {
-			// Adjusted property for the book genre
-			queryBuilder.append("  FILTER (regex(?genre, \"").append(genre).append("\", \"i\"))\n");
-		}
-
-		if (author != null && !author.isEmpty()) {
-			// Adjusted property for the book author
-			queryBuilder.append("  FILTER (regex(?author, \"").append(author).append("\", \"i\"))\n");
-		}
-
-		queryBuilder.append("}");
+				.append("  ?book book:Title \"").append(title).append("\" .\n")
+				.append("  ?book book:hasGenre ?hasGenre .\n")
+				.append("  ?book book:NumberOfPages ?numberOfPagesRaw .\n")
+				.append("  ?book book:writtenBy ?writtenBy .\n")
+				.append("  ?book book:Title ?title .\n")
+				.append("  BIND(str(?numberOfPagesRaw) AS ?numberOfPages)\n") // Convert datatype to string
+				.append("}");
 
 		return queryBuilder.toString();
 	}
+
+
+
+
 
 
 

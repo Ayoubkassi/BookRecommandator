@@ -9,75 +9,50 @@ function BooksContainer() {
     rating: '',
     minPages: '',
   });
-
+  
   const handleInputChange = (field, value) => {
     setQuery({ ...query, [field]: value });
   };
-
+  
   const [searchResults, setSearchResults] = useState([]);
-
-
-
-//   const handleSearch = () => {
-//     // Send the request with only the title
-//     fetch('http://localhost:5000/api/v1/query', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: query.title,
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         setSearchResults(data);
-//     })
-//     .catch(error => {
-//         console.error('Error:', error);
-//     });
-// };
-
-const handleSearch = () => {
-  // Prepare the request body with title, type, and author
-  const requestBody = {
-    title: query.title,
-    genre: query.genre, // Assuming query.type contains the type value
-    author: query.author, // Assuming query.author contains the author value
-  };
-
-  // Send the request with title, type, and author
-  fetch('http://localhost:5000/api/v1/query', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(requestBody), // Convert the object to JSON string
-  })
-    .then((response) => response.json())
-    .then(async (data) => {
-      // Fetch cover images from Google Books API based on the title
-      const coverPromises = data.map(async (result) => {
-        const googleBooksResponse = await fetch(
-          `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(result.title)}`
-        );
-        const googleBooksData = await googleBooksResponse.json();
-
-        if (googleBooksData.items && googleBooksData.items.length > 0) {
-          const bookInfo = googleBooksData.items[0].volumeInfo;
-          return { ...result, cover: bookInfo.imageLinks?.thumbnail };
-        } else {
-          return result;
-        }
-      });
-
-      // Wait for all cover image promises to resolve
-      const resultsWithCovers = await Promise.all(coverPromises);
-
-      setSearchResults(resultsWithCovers);
+  
+  const handleSearch = () => {
+    // Prepare the request body with title, genre, and author
+    const requestBody = {
+      title: query.title,
+      genre: query.genre,
+      author: query.author,
+    };
+  
+    // Send the request with title, genre, and author
+    fetch('http://localhost:5000/api/v1/query', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody), // Convert the object to JSON string
     })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
-};
+      .then((response) => response.json())
+      .then(async (data) => {
+        console.log('data : ', data);
+  
+        // Update search results with the modified structure
+        const updatedResults = data.map((result) => {
+          return {
+            title: result.title,
+            genre: result.hasGenre,
+            numberOfPages: result.numberOfPages,
+            author: result.writtenBy,
+          };
+        });
+  
+        setSearchResults(updatedResults);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  };
+  
 
 
 
@@ -169,8 +144,9 @@ const handleSearch = () => {
                 )}
                   <div className="card-body">
                     <h5 className="card-title">Title: {result.title}</h5>
-                    <p className="card-text">Author: {result.author && result.author.split('#')[1]}</p>
-                    <a href="#" className="btn btn-primary">Genre: {result.genre && result.genre.split('#')[1]}</a>
+                    <p className="card-text">Author: {result.author}</p>
+                    <p className="card-text">NB Pages: {result.numberOfPages}</p>
+                    <a href="#" className="btn btn-primary">Genre: {result.genre}</a>
                   </div>
                 </div>
               ))}
