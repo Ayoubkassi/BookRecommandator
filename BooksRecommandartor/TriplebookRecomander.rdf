@@ -96,4 +96,34 @@
     <j.0:hasGenre>http://example.org#SoftwareEngineering</j.0:hasGenre>
     <j.0:hasTitle>CodeComplete</j.0:hasTitle>
   </j.0:Book>
+  <j.0:Book rdf:about="http://example.org#PrideAndPrejudice">
+    <j.0:authoredBy>http://example.org#Jane Austen</j.0:authoredBy>
+    <j.0:hasGenre>http://example.org#Romance</j.0:hasGenre>
+    <j.0:hasTitle>PrideAndPrejudice</j.0:hasTitle>
+  </j.0:Book>
+  <j.0:Book rdf:about="http://example.org#MeBeforeYou">
+    <j.0:authoredBy>http://example.org#Jojo Moyes</j.0:authoredBy>
+    <j.0:hasGenre>http://example.org#Romance</j.0:hasGenre>
+    <j.0:hasTitle>MeBeforeYou</j.0:hasTitle>
+  </j.0:Book>
+  <j.0:Book rdf:about="http://example.org#BridgetJonesDiary">
+    <j.0:authoredBy>http://example.org#Helen Fielding</j.0:authoredBy>
+    <j.0:hasGenre>http://example.org#Romance</j.0:hasGenre>
+    <j.0:hasTitle>BridgetJonesDiary</j.0:hasTitle>
+  </j.0:Book>
+  <j.0:Book rdf:about="http://example.org#TheRosieProject">
+    <j.0:authoredBy>http://example.org#Graeme Simsion</j.0:authoredBy>
+    <j.0:hasGenre>http://example.org#RomanticComedy</j.0:hasGenre>
+    <j.0:hasTitle>TheRosieProject</j.0:hasTitle>
+  </j.0:Book>
+  <j.0:Book rdf:about="http://example.org#CrazyRichAsians">
+    <j.0:authoredBy>http://example.org#Kevin Kwan</j.0:authoredBy>
+    <j.0:hasGenre>http://example.org#RomanticComedy</j.0:hasGenre>
+    <j.0:hasTitle>CrazyRichAsians</j.0:hasTitle>
+  </j.0:Book>
+  <j.0:Book rdf:about="http://example.org#GoodOmens">
+    <j.0:authoredBy>http://example.org#Neil Gaiman, Terry Pratchett</j.0:authoredBy>
+    <j.0:hasGenre>http://example.org#FantasyComedy</j.0:hasGenre>
+    <j.0:hasTitle>GoodOmens</j.0:hasTitle>
+  </j.0:Book>
 </rdf:RDF>

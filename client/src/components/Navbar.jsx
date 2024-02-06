@@ -2,7 +2,7 @@ import React from 'react';
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
       <a className="navbar-brand" href="/home">
         BooksRecommandator
       </a>
@@ -25,7 +25,7 @@ function Navbar() {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/">
+            <a className="nav-link" href="/books">
               Books
             </a>
           </li>

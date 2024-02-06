@@ -4,7 +4,7 @@ function BooksContainer() {
 
   const [query, setQuery] = useState({
     title: '',
-    type: '',
+    genre: '',
     author: '',
     rating: '',
     minPages: '',
@@ -37,13 +37,20 @@ function BooksContainer() {
 // };
 
 const handleSearch = () => {
-  // Send the request with only the title
+  // Prepare the request body with title, type, and author
+  const requestBody = {
+    title: query.title,
+    genre: query.genre, // Assuming query.type contains the type value
+    author: query.author, // Assuming query.author contains the author value
+  };
+
+  // Send the request with title, type, and author
   fetch('http://localhost:5000/api/v1/query', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: query.title,
+    body: JSON.stringify(requestBody), // Convert the object to JSON string
   })
     .then((response) => response.json())
     .then(async (data) => {
@@ -74,6 +81,7 @@ const handleSearch = () => {
 
 
 
+
   
 
 
@@ -95,14 +103,14 @@ const handleSearch = () => {
           />
         </div>
         <div className="form-group col-4">
-          <label htmlFor="typeInput">Book type</label>
+          <label htmlFor="typeInput">Book Genre</label>
           <input
             type="text"
             className="form-control"
             id="typeInput"
-            placeholder="Enter book type"
-            value={query.type}
-            onChange={e => handleInputChange('type', e.target.value)}
+            placeholder="Enter book genre"
+            value={query.genre}
+            onChange={e => handleInputChange('genre', e.target.value)}
           />
         </div>
         <div className="form-group col-4">
@@ -153,11 +161,15 @@ const handleSearch = () => {
             <h2>Search Results:</h2>
             <ul>
               {searchResults.map(result => (
-                <div key={result.book} className="card" style={{ width: '18rem' }}>
-                  {result.cover && <img className="card-img-top" src={result.cover} alt={`${result.title} cover`} />}
+                <div key={result.book} className="card" style={{ width: '18rem' , boxShadow: '2px 2px 5px black' , padding : '15px'  }} >
+                  {result.cover ? (
+                  <img className="card-img-top" src={result.cover} alt={`${result.title} cover`} />
+                ) : (
+                  <img className="card-img-top" src="https://demo.publishr.cloud/assets/common/images/edition_placeholder.png" alt="Default cover" />
+                )}
                   <div className="card-body">
                     <h5 className="card-title">Title: {result.title}</h5>
-                    <p className="card-text">Author: {result.author}</p>
+                    <p className="card-text">Author: {result.author && result.author.split('#')[1]}</p>
                     <a href="#" className="btn btn-primary">Genre: {result.genre && result.genre.split('#')[1]}</a>
                   </div>
                 </div>

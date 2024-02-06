@@ -10,6 +10,7 @@ import {
 
 import Welcome from './Welcome';
 import Login from './components/Login';
+import AllBooks from './components/AllBooks';
 
 
 const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "login",
     element: <Login />,
+  },
+  {
+    path: "books",
+    element: <AllBooks />,
   },
 ]);
 

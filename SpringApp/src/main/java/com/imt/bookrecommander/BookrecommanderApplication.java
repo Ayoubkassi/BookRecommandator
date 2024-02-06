@@ -108,7 +108,7 @@ public class BookrecommanderApplication {
 
 	public BookrecommanderApplication(){
 
-		initializeLoadFile();
+		//initializeLoadFile();
 		// and after load the file
 		this.model = loadModelFromFile("TriplebookRecomander.rdf");
 	}
@@ -144,14 +144,91 @@ public class BookrecommanderApplication {
 //	}
 
 	@PostMapping("/query")
-	public ResponseEntity<List<Map<String, String>>> queryModelWithParameters(
-			@RequestBody String title) {
+	public ResponseEntity<List<Map<String, String>>> queryModelWithParameters(@RequestBody Map<String, String> requestBody) {
+		String title = requestBody.get("title");
+		String genre = requestBody.get("genre"); // Updated 'type' to 'genre'
+		String author = requestBody.get("author");
 
-		// Build the query based on provided parameters
-		System.out.println("title : "+title);
-		String queryString = buildQuery(title);
-		System.out.println("response:"+queryString);
-		System.out.printf("heeere");
+		String queryString = buildQuery(title, genre, author); // Updated method parameters
+		System.out.println("Query string: " + queryString);
+
+		Query query = QueryFactory.create(queryString);
+
+		List<Map<String, String>> queryResults = new ArrayList<>();
+
+		try (QueryExecution qexec = QueryExecutionFactory.create(query, this.model)) {
+			ResultSet results = qexec.execSelect();
+
+			while (results.hasNext()) {
+				QuerySolution soln = results.nextSolution();
+
+				// Process each solution and add it to the list
+				Map<String, String> resultMap = new HashMap<>();
+				soln.varNames().forEachRemaining(var -> {
+					RDFNode value = soln.get(var);
+					resultMap.put(var, value.toString());
+				});
+
+				queryResults.add(resultMap);
+			}
+		}
+
+		System.out.println("Query results: " + queryResults);
+
+		// Return the list of query results as JSON
+		return ResponseEntity.ok(queryResults);
+	}
+
+	// Helper method to build the query based on parameters
+	// Helper method to build the query based on parameters
+	private String buildQuery(String title, String genre, String author) {
+		StringBuilder queryBuilder = new StringBuilder();
+		queryBuilder.append("PREFIX ex: <http://example.org#>\n")
+				.append("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n")
+				.append("PREFIX vcard: <http://www.w3.org/2001/vcard-rdf/3.0#>\n")
+				.append("SELECT ?book ?title ?genre ?author\n")
+				.append("WHERE {\n")
+				.append("  ?book rdf:type ex:Book .\n")
+				.append("  ?book ex:hasGenre ?genre .\n")
+				.append("  ?book ex:authoredBy ?author .\n")
+				.append("  ?book ex:hasTitle ?title .\n");
+
+		// Filter based on provided parameters
+		if (title != null && !title.isEmpty()) {
+			queryBuilder.append("  FILTER (regex(?title, \"").append(title).append("\", \"i\"))\n");
+		}
+
+		if (genre != null && !genre.isEmpty()) {
+			// Adjusted property for the book genre
+			queryBuilder.append("  FILTER (regex(?genre, \"").append(genre).append("\", \"i\"))\n");
+		}
+
+		if (author != null && !author.isEmpty()) {
+			// Adjusted property for the book author
+			queryBuilder.append("  FILTER (regex(?author, \"").append(author).append("\", \"i\"))\n");
+		}
+
+		queryBuilder.append("}");
+
+		return queryBuilder.toString();
+	}
+
+
+
+
+	@GetMapping("/books")
+	public ResponseEntity<List<Map<String, String>>> getAllBooks() {
+		String queryString = "PREFIX ex: <http://example.org#>\n" +
+				"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + // Define the rdf prefix
+				"SELECT ?book ?title ?genre ?author\n" +
+				"WHERE {\n" +
+				"  ?book rdf:type ex:Book .\n" + // Use the rdf prefix
+				"  ?book ex:hasGenre ?genre .\n" +
+				"  ?book ex:authoredBy ?author .\n" +
+				"  ?book ex:hasTitle ?title .\n" +
+				"}";
+
+
 		Query query = QueryFactory.create(queryString);
 
 		List<Map<String, String>> queryResults = new ArrayList<>();
@@ -175,25 +252,6 @@ public class BookrecommanderApplication {
 
 		// Return the list of query results as JSON
 		return ResponseEntity.ok(queryResults);
-	}
-
-	// Helper method to build the query based on parameters
-	private String buildQuery(String title) {
-		StringBuilder queryBuilder = new StringBuilder();
-		queryBuilder.append("PREFIX ex: <http://example.org#>\n")
-				.append("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n")
-				.append("PREFIX vcard: <http://www.w3.org/2001/vcard-rdf/3.0#>\n")
-				.append("SELECT ?book ?title ?genre ?author\n")
-				.append("WHERE {\n")
-				.append("  ?book rdf:type ex:Book .\n")
-				.append("  ?book ex:hasGenre ?genre .\n")
-				.append("  ?book ex:authoredBy ?author .\n")
-				.append("  ?book ex:hasTitle ?title .\n")
-				.append("  FILTER (regex(?title, \"").append(title).append("\", \"i\"))\n")
-				.append("}");
-
-		System.out.println("query :" + queryBuilder.toString());
-		return queryBuilder.toString();
 	}
 
 
