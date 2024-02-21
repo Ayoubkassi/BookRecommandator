@@ -4,7 +4,7 @@
 
 ## Overview
 
-![alt](./scr/scr1.png)
+![alt](./screens/scr1.png)
 
 Welcome to the Book Recommender App, a Java-based application that leverages the power of ontology with Jena API to provide personalized book recommendations. Whether you're an avid reader or someone looking to discover new literary gems, this app is designed to enhance your reading experience.
 
@@ -18,7 +18,7 @@ Welcome to the Book Recommender App, a Java-based application that leverages the
 
 - **Iconic Design:** Our app comes with a visually appealing design, featuring custom icons that add a touch of elegance to your reading experience.
 
-## How to Use
+## How to Use Back End Application with spring
 
 1. **Clone the Repository:**
 
@@ -26,20 +26,33 @@ Welcome to the Book Recommender App, a Java-based application that leverages the
    git clone https://github.com/Ayoubkassi/BookRecommandator.git
    ```
 
-2. **Build with Ant:**
+
+2. **Run the App:**
 
    ```bash
-   ant build
+   java -jar bookrecommander-0.0.1-SNAPSHOT.jar
    ```
 
-3. **Run the App:**
+3. **Explore and Enjoy:**
+   Open your web browser and navigate to `http://localhost:5000` to start exploring personalized book recommendations.
 
-   ```bash
-   java -jar book-recommender-app.jar
-   ```
 
-4. **Explore and Enjoy:**
-   Open your web browser and navigate to `http://localhost:8080` to start exploring personalized book recommendations.
+
+## How to Use Front Client Side
+
+**Install Dependencies**
+> cd client && npm install
+
+or if you use yarn u can install and build with it
+
+**Run client app**
+
+> npm start
+
+
+
+**You can run only back end part and use http client like Postman or Insomnia to process ur http request without client app**
+
 
 ## Dependencies
 
