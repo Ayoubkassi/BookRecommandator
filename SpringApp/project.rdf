@@ -1,0 +1,726 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#"
+     xml:base="http://www.semanticweb.org/ahmed/ontologies/2024/0/book"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:book="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book">
+        <rdfs:comment>this is an onthology about books</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#estPubliéPar -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#estPubliéPar">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Editeur"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#similaireÀ -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#similaireÀ">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#écritPar -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#écritPar">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#auteur"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#ISBN -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#ISBN">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Notation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Notation">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#abstract -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#abstract">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#année_de_publication -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#année_de_publication">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#langue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#langue">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#mots_clés -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#mots_clés">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#nom -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#nom">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#nombre_de_pages -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#nombre_de_pages">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#prix -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#prix">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Adulte -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Adulte">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#age"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Audible -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Audible">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Non_matérialisé"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Audience -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Audience"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Auteurs_Best-seller -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Auteurs_Best-seller">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#auteur"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Auteurs_Lauréats -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Auteurs_Lauréats">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#auteur"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Auteurs_Émergents -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Auteurs_Émergents">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#auteur"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Autobiographie -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Autobiographie">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#non_fiction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Bande_dessinée -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Bande_dessinée">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Fiction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Biographie -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Biographie">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#non_fiction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Couverture_rigide -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Couverture_rigide">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Matérialisé"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Couverture_souple -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Couverture_souple">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Matérialisé"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Editeur -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Editeur"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Fantaisie -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Fantaisie">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Fiction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Fiction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Fiction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Genre -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Genre">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Histoire -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Histoire">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#non_fiction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Horreur -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Horreur">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Fiction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Jeune -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Jeune">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#age"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Kindle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Kindle">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Non_matérialisé"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Littérature_jeunesse -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Littérature_jeunesse">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Fiction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#MP3 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#MP3">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Non_matérialisé"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Matérialisé -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Matérialisé">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#format"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Mystère -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Mystère">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Fiction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Non_matérialisé -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Non_matérialisé">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#format"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Nouvelle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Nouvelle">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Fiction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Policier -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Policier">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Fiction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Politique -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Politique">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#non_fiction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Roman -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Roman">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Fiction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Santé_et_Bien_etre -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Santé_et_Bien_etre">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#non_fiction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Science_fiction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Science_fiction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Fiction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#adolescent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#adolescent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#age"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#age -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#age">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Audience"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#auteur -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#auteur"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#cuisine -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#cuisine">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#non_fiction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#enfant -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#enfant">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#age"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#format -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#format"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#ibook -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#ibook">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Non_matérialisé"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#non_fiction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#non_fiction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#pdf -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#pdf">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Non_matérialisé"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#AntoineDeSaintExupéry -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#AntoineDeSaintExupéry">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#auteur"/>
+        <nom>Antoine de Saint-Exupéry</nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Gallimard -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Gallimard">
+        <nom>Gallimard</nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#LePetitPrince -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#LePetitPrince">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <estPubliéPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Gallimard"/>
+        <écritPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#AntoineDeSaintExupéry"/>
+        <ISBN>978-2-07-011992-5</ISBN>
+        <Notation>4.7</Notation>
+        <abstract>Ce conte poétique et philosophique est l&apos;histoire d&apos;un aviateur qui rencontre un jeune prince venu d&apos;une autre planète.</abstract>
+        <année_de_publication>1943</année_de_publication>
+        <langue>Français</langue>
+        <mots_clés>philosophie, aventure, amitié</mots_clés>
+        <nom>Le Petit Prince</nom>
+        <nombre_de_pages>96</nombre_de_pages>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#CleanCode">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <estPubliéPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Gallimard"/>
+        <écritPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#AntoineDeSaintExupéry"/>
+        <ISBN>978-0-13-235088-4</ISBN>
+        <Notation>4.6</Notation>
+        <abstract>Clean Code: A Handbook of Agile Software Craftsmanship is a guide to writing code that is clean, understandable, and maintainable.</abstract>
+        <année_de_publication>2008</année_de_publication>
+        <langue>English</langue>
+        <mots_clés>software development, programming, clean coding</mots_clés>
+        <nom>Clean Code</nom>
+        <nombre_de_pages>464</nombre_de_pages>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#ComedyBook">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <estPubliéPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Gallimard"/>
+        <écritPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#AntoineDeSaintExupéry"/>
+        <ISBN>978-1-23-456789-0</ISBN>
+        <Notation>4.5</Notation>
+        <abstract>This comedy book will make you laugh until you cry, with its hilarious anecdotes and witty humor.</abstract>
+        <année_de_publication>2020</année_de_publication>
+        <langue>English</langue>
+        <mots_clés>comedy, humor, entertainment</mots_clés>
+        <nom>Comedy Book</nom>
+        <nombre_de_pages>320</nombre_de_pages>
+    </owl:NamedIndividual>
+
+
+    <!-- Book: Clean Code -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#CleanCode">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <estPubliéPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Gallimard"/>
+        <écritPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#RobertMartin"/>
+        <ISBN>978-0-13-235088-4</ISBN>
+        <Notation>4.9</Notation>
+        <abstract>This book is about writing clean, maintainable code.</abstract>
+        <année_de_publication>2008</année_de_publication>
+        <langue>English</langue>
+        <mots_clés>software engineering, programming</mots_clés>
+        <nom>Clean Code</nom>
+        <nombre_de_pages>464</nombre_de_pages>
+    </owl:NamedIndividual>
+
+    <!-- Book: Harry Potter and the Sorcerer's Stone -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#HarryPotter1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <estPubliéPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Gallimard"/>
+        <écritPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#JKRowling"/>
+        <ISBN>978-0-7475-3269-6</ISBN>
+        <Notation>4.7</Notation>
+        <abstract>A young boy discovers he is a wizard and attends Hogwarts School of Witchcraft and Wizardry.</abstract>
+        <année_de_publication>1997</année_de_publication>
+        <langue>English</langue>
+        <mots_clés>fantasy, magic, adventure</mots_clés>
+        <nom>Harry Potter and the Sorcerer's Stone</nom>
+        <nombre_de_pages>309</nombre_de_pages>
+    </owl:NamedIndividual>
+
+    <!-- Book: Pride and Prejudice -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#PrideAndPrejudice">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <estPubliéPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Gallimard"/>
+        <écritPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#JaneAusten"/>
+        <ISBN>978-0-19-953556-9</ISBN>
+        <Notation>4.4</Notation>
+        <abstract>A classic novel following the lives of the Bennet sisters in early 19th-century England.</abstract>
+        <année_de_publication>1813</année_de_publication>
+        <langue>English</langue>
+        <mots_clés>romance, social commentary</mots_clés>
+        <nom>Pride and Prejudice</nom>
+        <nombre_de_pages>279</nombre_de_pages>
+    </owl:NamedIndividual>
+
+    <!-- Book: The Hitchhiker's Guide to the Galaxy -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#HitchhikersGuide">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <estPubliéPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Gallimard"/>
+        <écritPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#DouglasAdams"/>
+        <ISBN>978-0-330-25864-0</ISBN>
+        <Notation>4.2</Notation>
+        <abstract>A comedic science fiction series following the misadventures of Arthur Dent after Earth's destruction.</abstract>
+        <année_de_publication>1979</année_de_publication>
+        <langue>English</langue>
+        <mots_clés>science fiction, comedy</mots_clés>
+        <nom>The Hitchhiker's Guide to the Galaxy</nom>
+        <nombre_de_pages>224</nombre_de_pages>
+    </owl:NamedIndividual>
+
+    <!-- Book: To Kill a Mockingbird -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#ToKillAMockingbird">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <estPubliéPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Gallimard"/>
+        <écritPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#HarperLee"/>
+        <ISBN>978-0-06-112008-4</ISBN>
+        <Notation>4.6</Notation>
+        <abstract>A Pulitzer Prize-winning novel set in the American South during the Great Depression.</abstract>
+        <année_de_publication>1960</année_de_publication>
+        <langue>English</langue>
+        <mots_clés>drama, racial injustice</mots_clés>
+        <nom>To Kill a Mockingbird</nom>
+        <nombre_de_pages>281</nombre_de_pages>
+    </owl:NamedIndividual>
+
+    <!-- Book: The Catcher in the Rye -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#CatcherInTheRye">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <estPubliéPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Gallimard"/>
+        <écritPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#JD_Salinger"/>
+        <ISBN>978-0-316-76948-0</ISBN>
+        <Notation>4.0</Notation>
+        <abstract>A novel about a disenchanted teenager navigating the adult world in New York City.</abstract>
+        <année_de_publication>1951</année_de_publication>
+        <langue>English</langue>
+        <mots_clés>coming-of-age, existentialism</mots_clés>
+        <nom>The Catcher in the Rye</nom>
+        <nombre_de_pages>277</nombre_de_pages>
+    </owl:NamedIndividual>
+
+    <!-- Book: The Great Gatsby -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#GreatGatsby">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <estPubliéPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Gallimard"/>
+        <écritPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#FScottFitzgerald"/>
+        <ISBN>978-0-7432-7356-5</ISBN>
+        <Notation>4.0</Notation>
+        <abstract>A tragic love story set in Long Island during the Roaring Twenties.</abstract>
+        <année_de_publication>1925</année_de_publication>
+        <langue>English</langue>
+        <mots_clés>romance, jazz age</mots_clés>
+        <nom>The Great Gatsby</nom>
+        <nombre_de_pages>180</nombre_de_pages>
+    </owl:NamedIndividual>
+
+    <!-- Book: 1984 -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#1984">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <estPubliéPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Gallimard"/>
+        <écritPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#GeorgeOrwell"/>
+        <ISBN>978-0-452-28423-4</ISBN>
+        <Notation>4.5</Notation>
+        <abstract>A dystopian novel set in a totalitarian society where critical thought is suppressed.</abstract>
+        <année_de_publication>1949</année_de_publication>
+        <langue>English</langue>
+        <mots_clés>dystopia, political fiction</mots_clés>
+        <nom>1984</nom>
+        <nombre_de_pages>328</nombre_de_pages>
+    </owl:NamedIndividual>
+
+    <!-- Book: The Lord of the Rings -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#LordOfTheRings">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <estPubliéPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Gallimard"/>
+        <écritPar rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#JRR_Tolkien"/>
+        <ISBN>978-0-618-34625-3</ISBN>
+        <Notation>4.5</Notation>
+        <abstract>An epic fantasy series following the quest to destroy the One Ring and defeat Sauron.</abstract>
+        <année_de_publication>1954</année_de_publication>
+        <langue>English</langue>
+        <mots_clés>fantasy, adventure</mots_clés>
+        <nom>The Lord of the Rings</nom>
+        <nombre_de_pages>1178</nombre_de_pages>
+    </owl:NamedIndividual>
+
+    
+
+
+    <!-- http://www.semanticweb.org/ahmed/ontologies/2024/0/book#LePrinceHeureux -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#LePrinceHeureux">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Livre"/>
+        <similaireÀ rdf:resource="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#LePetitPrince"/>
+        <nom>Le Prince Heureux</nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Auteurs_Best-seller"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Auteurs_Lauréats"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ahmed/ontologies/2024/0/book#Auteurs_Émergents"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+

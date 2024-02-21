@@ -18,7 +18,10 @@ function Books() {
 
           if (googleBooksData.items && googleBooksData.items.length > 0) {
             const bookInfo = googleBooksData.items[0].volumeInfo;
-            return { ...result, cover: bookInfo.imageLinks?.thumbnail };
+            return { ...result, cover: bookInfo.imageLinks?.thumbnail ,
+              averageRating: bookInfo.averageRating,
+              pageCount: bookInfo.pageCount
+            };
           } else {
             return result;
           }
@@ -53,6 +56,8 @@ function Books() {
                 <div className="card-body">
                 <h5 className="card-title">Title: {result.title}</h5>
                 <p className="card-text">Author: {result.author && result.author.split('#')[1]}</p>
+                    {  result.averageRating && <p>Rating : {result.averageRating}</p>} 
+                    {  result.pageCount && <p>NB pages : {result.pageCount}</p>} 
                 <a href="#" className="btn btn-primary">Genre: {result.genre && result.genre.split('#')[1]}</a>
                 </div>
             </div>
