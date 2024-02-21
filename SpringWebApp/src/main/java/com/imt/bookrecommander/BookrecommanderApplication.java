@@ -128,7 +128,7 @@ public class BookrecommanderApplication {
 
 		// initializeLoadFile();
 		// and after load the file
-		this.model = loadModelFromFile("project.rdf");
+		this.model = loadModelFromFile("finalVersion.rdf");
 	}
 
 
